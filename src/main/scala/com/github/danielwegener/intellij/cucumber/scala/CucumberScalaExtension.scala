@@ -53,7 +53,7 @@ class CucumberScalaExtension extends AbstractCucumberExtension {
   @NotNull override def getGlues(@NotNull file: GherkinFile, jGluesFromOtherFiles: JavaSet[String]): JavaCollection[String] = {
     // never called? wtf
     LOG.debug("GET GLUES CALLED")
-    Collections.emptyList()
+    jGluesFromOtherFiles
   }
 
   override def loadStepsFor(featureFile: PsiFile, module: Module): java.util.List[AbstractStepDefinition] = {

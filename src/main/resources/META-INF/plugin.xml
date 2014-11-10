@@ -34,6 +34,12 @@
     <depends>cucumber</depends>
     <depends>org.intellij.scala</depends>
 
+    <extensions defaultExtensionNs="com.intellij">
+        <referencesSearch implementation="com.github.danielwegener.intellij.cucumber.scala.steps.search.CucumberScalaStepDefinitionSearch"/>
+        <methodReferencesSearch implementation="com.github.danielwegener.intellij.cucumber.scala.steps.search.CucumberScalaMethodUsageSearcher"/>
+        <implicitUsageProvider implementation="com.github.danielwegener.intellij.cucumber.scala.steps.reference.CucumberScalaImplicitUsageProvider"/>
+        <findUsagesHandlerFactory implementation="com.github.danielwegener.intellij.cucumber.scala.CucumberStepFindUsageHandlerFactory"/>
+    </extensions>
     <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">
         <cucumberJvmExtensionPoint
                 implementation="com.github.danielwegener.intellij.cucumber.scala.CucumberScalaExtension"/>
