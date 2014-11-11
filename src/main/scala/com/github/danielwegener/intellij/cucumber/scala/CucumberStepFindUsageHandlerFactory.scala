@@ -9,12 +9,10 @@ class CucumberStepFindUsageHandlerFactory extends FindUsagesHandlerFactory {
 
   override def canFindUsages(element: PsiElement): Boolean = {
     val canFind = for {
-     elemn <- Some(element)
-     literal: ScLiteral <- elemn
-     if literal.isString
-     argumentList: ScArgumentExprList <- literal.parent
-     methodCall: ScMethodCall <- literal.parent
-
+      literal @ (_y: ScLiteral) <- Some(element)
+      if literal.isString
+      argumentList @ (_y: ScArgumentExprList) <- literal.parent
+      methodCall @ (_y: ScMethodCall) <- argumentList.parent
     } yield true
 
     canFind.getOrElse(false)

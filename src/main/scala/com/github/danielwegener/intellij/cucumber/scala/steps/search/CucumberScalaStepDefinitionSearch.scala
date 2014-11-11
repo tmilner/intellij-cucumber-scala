@@ -3,7 +3,7 @@ package com.github.danielwegener.intellij.cucumber.scala.steps.search
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.util.Computable
-import com.intellij.psi.{PsiMethod, PsiReference}
+import com.intellij.psi.{ PsiMethod, PsiReference }
 import com.intellij.psi.search.searches.ReferencesSearch
 import com.intellij.psi.search.searches.ReferencesSearch.SearchParameters
 import com.intellij.util.{ Processor, QueryExecutor }
@@ -18,25 +18,24 @@ class CucumberScalaStepDefinitionSearch extends QueryExecutor[PsiReference, Refe
   override def execute(queryParameters: SearchParameters, consumer: Processor[PsiReference]): Boolean = {
     val myElement = queryParameters.getElementToSearch
 
+    CucumberScalaStepDefinitionSearch.LOG.warn(s"execute($queryParameters, $consumer), elementToSearch=$myElement, ${myElement.getNode}")
     if (!myElement.isInstanceOf[PsiMethod]) {
       return true
     }
 
     val method: PsiMethod = myElement.asInstanceOf[PsiMethod]
 
-
     val isStepDefinition: Boolean = ApplicationManager.getApplication.runReadAction(new Computable[Boolean] {
       def compute: Boolean = {
-        CucumberJavaUtil.isStepDefinition(method)
+        //CucumberJavaUtil.isStepDefinition(method)
+        false;
       }
     })
-
 
     if (!isStepDefinition) {
       return true
     }
 
-    CucumberScalaStepDefinitionSearch.LOG.warn(s"execute($queryParameters, $consumer), elementToSearch=$myElement")
     true
   }
 
