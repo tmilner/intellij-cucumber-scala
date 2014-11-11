@@ -23,7 +23,7 @@ class ScalaStepDefinition(scMethod: ScMethodCall) extends AbstractStepDefinition
       parentheses <- arg.children
     } yield (arg, parentheses)
 
-    LOG.info(r.toString)
+    LOG.warn(s"getVariableNames yielded $r")
     Collections.emptyList()
 
   }

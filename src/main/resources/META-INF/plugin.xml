@@ -36,8 +36,7 @@
 
     <extensions defaultExtensionNs="com.intellij">
         <referencesSearch implementation="com.github.danielwegener.intellij.cucumber.scala.steps.search.CucumberScalaStepDefinitionSearch"/>
-        <methodReferencesSearch implementation="com.github.danielwegener.intellij.cucumber.scala.steps.search.CucumberScalaMethodUsageSearcher"/>
-        <implicitUsageProvider implementation="com.github.danielwegener.intellij.cucumber.scala.steps.reference.CucumberScalaImplicitUsageProvider"/>
+        <!-- we do not need implicitUsageProvider since constructor parameters as scaladsl declarations are never unused -->
         <findUsagesHandlerFactory implementation="com.github.danielwegener.intellij.cucumber.scala.CucumberStepFindUsageHandlerFactory"/>
     </extensions>
     <extensions defaultExtensionNs="org.jetbrains.plugins.cucumber.steps">

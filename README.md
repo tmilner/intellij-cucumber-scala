@@ -18,7 +18,11 @@ Enables Reference tracking of glue code when using cucumber-scala DSL.
 2. `sbt updateIdea` will download the idea sdk to the SDK folder and all required plugins
 3. Import the project as sbt project into IDEA.
 
-Now you can build this plugin with `sbt package`
+To debug set
+
+`export IDE_JVM_ARGS="-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=4000,suspend=n"`
+
+Now you can build this plugin with `mvn -Didea.home=PATH_TO_IDEA clean install` or use a IDEA plugin run configuration to debug it.
 
 > IntelliJ Plugin Development is too hard :/ Please provide a public (maybe non-oss, non-free) repo for Idea artifacts. Or maybe a sbt plugin.
 

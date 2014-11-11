@@ -1,6 +1,6 @@
 package com.github.danielwegener.intellij.cucumber.scala
 
-import java.util.{ Collections, Collection => JavaCollection, Set => JavaSet }
+import java.util.{ Collection => JavaCollection, Set => JavaSet }
 
 import com.github.danielwegener.intellij.cucumber.scala.steps.ScalaStepDefinition
 import com.intellij.openapi.diagnostic.Logger
