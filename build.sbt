@@ -6,7 +6,7 @@ version := "0.3.1"
 
 scalaVersion :=  "2.11.2"
 
-//libraryDependencies +=  "org.scala-lang" % "scala-reflect" % scalaVersion.value
+libraryDependencies +=  "info.cukes" %% "cucumber-scala" % "1.2.2" exclude("info.cukes", "cucumber-html") exclude("info.cukes", "cucumber-jvm-deps") exclude("info.cukes", "gherkin")
 
 //libraryDependencies += "com.novocode" % "junit-interface" % "0.11" % "test"
 
@@ -31,6 +31,7 @@ pluginDependencies := Seq()
 pluginDependencies +=  "com.jetbrains.plugins" % "org.intellij.scala" % "current"
 
 pluginDependencies +=  "com.jetbrains.plugins" % "cucumber" % "current"
+pluginDependencies +=  "com.jetbrains.plugins" % "cucumber-java" % "current"
 
 ideaBasePath in Global := baseDirectory.value / "SDK" / "ideaSDK" / s"idea-${ideaVersion.value}"
 

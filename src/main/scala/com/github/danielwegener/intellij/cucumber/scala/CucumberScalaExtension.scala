@@ -2,7 +2,7 @@ package com.github.danielwegener.intellij.cucumber.scala
 
 import java.util.{ Collections, Collection => JavaCollection, Set => JavaSet }
 
-import com.github.danielwegener.intellij.cucumber.scala.steps.ScalaStepDefinition
+import com.github.danielwegener.intellij.cucumber.scala.steps.{ ScalaStepDefinitionCreator, ScalaStepDefinition }
 import com.intellij.openapi.diagnostic.Logger
 import com.intellij.openapi.module.{ Module, ModuleUtilCore }
 import com.intellij.openapi.project.Project
@@ -48,7 +48,7 @@ class CucumberScalaExtension extends AbstractCucumberExtension {
   override val getStepFileType: BDDFrameworkType = new BDDFrameworkType(ScalaFileType.SCALA_FILE_TYPE)
 
   @NotNull
-  override def getStepDefinitionCreator: StepDefinitionCreator = throw new UnsupportedOperationException("You cannot automatically create Steps yet.")
+  override def getStepDefinitionCreator: StepDefinitionCreator = new ScalaStepDefinitionCreator
 
   @NotNull override def getGlues(@NotNull file: GherkinFile, jGluesFromOtherFiles: JavaSet[String]): JavaCollection[String] = {
     // never called? wtf
